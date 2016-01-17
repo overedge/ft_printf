@@ -14,6 +14,7 @@
 
 int main()
 {
-
-	return (0);
+	int mabite = 0xFFFFFF;
+	printf("%d", mabite);
+return (0);
 }

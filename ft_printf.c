@@ -11,10 +11,70 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft.h"
+#include <stdio.h>
 
-int		printf(const char *format, ...)
+void	debug(t_var *e)
 {
-	ft_putstr(format);
+	if (e->f_left == 1)
+		ft_putstr("- Flags Actived \n");
+	else
+		ft_putstr("- Flags Not Actived \n");
+	if (e->f_positive == 1)
+		ft_putstr("+ Flags Actived \n");
+	else
+		ft_putstr("+ Flags Not Actived \n");
+	if (e->f_effect == 1)
+		ft_putstr("# Flags Actived \n");
+	else
+		ft_putstr("# Flags Not Actived \n");
+	if (e->f_zero == 1)
+		ft_putstr("0 Flags Actived \n");
+	else
+		ft_putstr("0 Flags Not Actived \n");
+	if (e->f_space == 1)
+		ft_putstr("' ' Flags Actived \n");
+	else
+		ft_putstr("' 'Flags Not Actived \n");
+	if (e->f_width != 0)
+		ft_putstr("width Flags Actived\n");
+	else
+		ft_putstr("width Flags Not Actived \n");
+}
+
+int		ft_printf(char *fmt, ...)
+{
+	t_var e;
+
+	e.i = 0;
+	e.ret = 0;
+	va_start(e.ap, fmt);
+	while(fmt[e.i])
+	{
+		if (fmt[e.i] == '%' && fmt[e.i + 1] == '%')
+		{
+			ft_putchar('%');
+			e.i++;
+		}
+		else if (fmt[e.i] == '%')
+		{
+			ft_parse_flags(fmt, &e);
+			debug(&e);
+		}
+		else
+			ft_putchar(fmt[e.i]);
+		e.ret++;
+		e.i++;
+	}
+	va_end(e.ap);
+	return (e.ret);
+}
+
+
+int main()
+{
+	int ret = 0;
+	ret = ft_printf("%d", 0xFF);
+	ft_putstr("Ft_Printf Renvoi : ");
+	ft_putnbr(ret);
 	return (0);
 }
