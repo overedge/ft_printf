@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/14 19:47:12 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/18 20:27:20 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	int mabite = 0xFFFFFF;
-	printf("%d", mabite);
+	int mabite = 0;
+	printf("%+3d", mabite);
 return (0);
 }

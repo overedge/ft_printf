@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:08 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/14 18:25:51 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/18 20:01:38 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		ft_printf(char *fmt, ...)
 int main()
 {
 	int ret = 0;
-	ret = ft_printf("%d", 0xFF);
+	ret = ft_printf("%1d", 123);
 	ft_putstr("Ft_Printf Renvoi : ");
 	ft_putnbr(ret);
 	return (0);

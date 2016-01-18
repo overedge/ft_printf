@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/14 19:47:09 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/18 18:17:28 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_var
 	char	f_zero;
 	char	f_space;
 	int		f_width;
+	int		t_size;
 }				t_var;
 
 int		ft_printf(char *fmt, ...);
