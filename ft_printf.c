@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:08 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/18 20:01:38 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/19 12:15:39 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		ft_printf(char *fmt, ...)
 		else if (fmt[e.i] == '%')
 		{
 			ft_parse_flags(fmt, &e);
-			debug(&e);
+//			debug(&e);
 		}
 		else
 			ft_putchar(fmt[e.i]);
@@ -67,14 +67,4 @@ int		ft_printf(char *fmt, ...)
 	}
 	va_end(e.ap);
 	return (e.ret);
-}
-
-
-int main()
-{
-	int ret = 0;
-	ret = ft_printf("%1d", 123);
-	ft_putstr("Ft_Printf Renvoi : ");
-	ft_putnbr(ret);
-	return (0);
 }

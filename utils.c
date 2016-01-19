@@ -1,19 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 12:02:58 by nahmed-m         ###   ########.fr       */
+/*   Created: 2016/01/19 11:10:03 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/19 11:15:29 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
-int main()
+void	ft_put_space(int space)
 {
-	printf("%0 4d", -123);
-return (0);
+	int		i;
+
+	i = 0;
+	while (i < space)
+	{
+		ft_putchar(' ');
+		i++;
+	}
+}
+
+void	ft_put_zero(int zero)
+{
+	int		i;
+
+	i = 0;
+	while (i < zero)
+	{
+		ft_putchar('0');
+		i++;
+	}
 }

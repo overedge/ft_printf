@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/18 18:17:28 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/19 11:15:30 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,10 @@ void	ft_check_type(char *fmt, t_var *e);
 ** Type Fuctions
 */
 void	type_d(t_var *e);
+
+/*
+** Utils Fuctions
+*/
+void	ft_put_space(int space);
+void	ft_put_zero(int zero);
 #endif
