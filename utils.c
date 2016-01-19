@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 11:10:03 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 11:15:29 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/19 20:24:04 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ void	ft_construct_struct(t_var *e)
 	e->f_zero = 0;
 	e->f_space = 0;
 	e->f_width = 0;
+	e->f_precis = 0;
 	e->t_size = 0;
 }

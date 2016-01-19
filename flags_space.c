@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   flags_space.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/20 00:07:51 by nahmed-m         ###   ########.fr       */
+/*   Created: 2016/01/19 20:37:17 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/19 21:20:25 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
-int main()
+
+void flags_space(char *fmt, t_var *e)
 {
-	printf("%-+200.122d", 12345);
-return (0);
+	if (fmt[e->i] == ' ')
+	{
+		e->f_space = 1;
+		e->i++;
+	}
+	else
+		e->f_space = 0;
 }

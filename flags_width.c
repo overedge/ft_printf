@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   flags_width.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/20 00:07:51 by nahmed-m         ###   ########.fr       */
+/*   Created: 2016/01/19 21:26:13 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/19 21:31:56 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
-int main()
+
+void	flags_width(char *fmt, t_var *e)
 {
-	printf("%-+200.122d", 12345);
-return (0);
+	char	*str;
+	int		i;
+
+	i = e->i;
+	if (ft_isdigit(fmt[e->i]))
+	{
+		while(ft_isdigit(fmt[e->i]))
+			e->i++;
+		str = ft_strsub(fmt, i, e->i); 
+		e->f_width = ft_atoi(str);
+		free(str);
+	}
+	else
+		e->f_width = 0;
 }
+

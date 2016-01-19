@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   flags_postitive.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/20 00:07:51 by nahmed-m         ###   ########.fr       */
+/*   Created: 2016/01/19 20:30:39 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/19 20:33:56 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
-int main()
+
+void	flags_positive(char *fmt, t_var *e)
 {
-	printf("%-+200.122d", 12345);
-return (0);
+	if (fmt[e->i] == '+')
+	{
+		e->f_positive = 1;
+		e->i++;
+	}
+	else
+		e->f_positive = 0;
 }
+
+

@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   type_s.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/20 00:07:51 by nahmed-m         ###   ########.fr       */
+/*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/19 23:01:31 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
-int main()
+
+void	type_s(t_var *e)
 {
-	printf("%-+200.122d", 12345);
-return (0);
+	char *str;
+
+	str = ft_strdup(va_arg(e->ap, char*));
+	ft_putstr(str);
+	e->ret += ft_strlen(str);
+	free(str);
 }

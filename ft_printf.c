@@ -6,13 +6,14 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:08 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 13:59:35 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/20 00:30:04 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
+/*
 void	debug(t_var *e)
 {
 	if (e->f_left == 1)
@@ -39,7 +40,11 @@ void	debug(t_var *e)
 		ft_putstr("width Flags Actived\n");
 	else
 		ft_putstr("width Flags Not Actived \n");
-}
+	if (e->f_precis != 0)
+		ft_putstr("Precision Flags Actived\n");
+	else
+		ft_putstr("Precision Flags Not Actived \n");
+}*/
 
 int		ft_printf(char *fmt, ...)
 {
@@ -50,10 +55,10 @@ int		ft_printf(char *fmt, ...)
 	va_start(e.ap, fmt);
 	while(fmt[e.i])
 	{
-		 if (fmt[e.i] == '%')
+		if (fmt[e.i] == '%')
 		{
 			ft_parse_flags(fmt, &e);
-//			debug(&e);
+		//	debug(&e);
 		}
 		else
 		{

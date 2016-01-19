@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 11:15:30 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/19 22:56:40 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_var
 	char	f_zero;
 	char	f_space;
 	int		f_width;
+	int		f_precis;
 	int		t_size;
 }				t_var;
 
@@ -37,20 +38,22 @@ int		ft_printf(char *fmt, ...);
 ** Flags Fuctions
 */
 void	ft_parse_flags(char *fmt, t_var *e);
-void	ft_check_flags1(char *fmt, t_var *e);
-void	ft_check_flags2(char *fmt, t_var *e);
-void	ft_check_flags3(char *fmt, t_var *e);
-void	ft_check_flags4(char *fmt, t_var *e);
-void	ft_check_flags_5(char *fmt, t_var *e);
-void	ft_check_flags_6(char *fmt, t_var *e);
-void	ft_check_type(char *fmt, t_var *e);
+void	flags_left(char *fmt, t_var *e);
+void	flags_positive(char *fmt, t_var *e);
+void	flags_effect(char *fmt, t_var *e);
+void	flags_zero(char *fmt, t_var *e);
+void	flags_space(char *fmt, t_var *e);
+void	flags_width(char *fmt, t_var *e);
+void	flags_precis(char *fmt, t_var *e);
 
 /*
 ** Type Fuctions
 */
+void	ft_check_type(char *fmt, t_var *e);
 void	type_d(t_var *e);
 void	type_exep(t_var *e);
-
+void	type_s(t_var *e);
+void	type_c(t_var *e);
 /*
 ** Utils Fuctions
 */
