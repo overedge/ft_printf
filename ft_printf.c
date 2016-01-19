@@ -50,12 +50,7 @@ int		ft_printf(char *fmt, ...)
 	va_start(e.ap, fmt);
 	while(fmt[e.i])
 	{
-		if (fmt[e.i] == '%' && fmt[e.i + 1] == '%')
-		{
-			ft_putchar('%');
-			e.i++;
-		}
-		else if (fmt[e.i] == '%')
+		 if (fmt[e.i] == '%')
 		{
 			ft_parse_flags(fmt, &e);
 //			debug(&e);
@@ -68,6 +63,5 @@ int		ft_printf(char *fmt, ...)
 		e.i++;
 	}
 	va_end(e.ap);
-	e.i--;
 	return (e.ret);
 }

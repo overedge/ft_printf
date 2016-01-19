@@ -49,10 +49,12 @@ void	ft_check_type(char *fmt, t_var *e);
 ** Type Fuctions
 */
 void	type_d(t_var *e);
+void	type_exep(t_var *e);
 
 /*
 ** Utils Fuctions
 */
 void	ft_put_space(int space);
 void	ft_put_zero(int zero);
+void	ft_construct_struct(t_var *e);
 #endif

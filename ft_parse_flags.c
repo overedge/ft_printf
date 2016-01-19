@@ -81,11 +81,14 @@ void	ft_check_type(char *fmt, t_var *e)
 		type_d(e);
 	else if (fmt[e->i] == 'x'|| fmt[e->i] == 'X')
 		ft_putstr("Hex mod detected");
+	else if (fmt[e->i] == '%')
+		type_exep(e);
 	else
 		exit(1);
 }
 void	ft_parse_flags(char *fmt, t_var *e)
 {
+	ft_construct_struct(e);
 	e->i++;
 	ft_check_flags1(fmt, e);
 	ft_check_flags2(fmt, e);

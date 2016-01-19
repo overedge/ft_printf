@@ -35,3 +35,14 @@ void	ft_put_zero(int zero)
 		i++;
 	}
 }
+
+void	ft_construct_struct(t_var *e)
+{
+	e->f_left = 0;
+	e->f_positive = 0;
+	e->f_effect = 0;
+	e->f_zero = 0;
+	e->f_space = 0;
+	e->f_width = 0;
+	e->t_size = 0;
+}

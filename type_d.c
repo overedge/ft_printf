@@ -83,8 +83,6 @@ void type_d(t_var *e)
 	e->ret += e->t_size;
 	if (value < 0 || e->f_positive == 1 || e->f_space == 1)
 		e->t_size++;
-	if (value <= -2147483648)
-		e->ret++;
 	if (e->f_left == 1 && e->f_width == 0)
 		ft_putstr_left(e, value);
 	else if (e->f_left == 1 && e->f_width != 0 && e->f_width <= e->t_size)
