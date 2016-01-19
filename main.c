@@ -6,14 +6,14 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 12:02:58 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/19 13:07:24 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
+#include "ft_printf.h"
 int main()
 {
-	printf("%0 4d", -123);
+	ft_printf("%0 4d", -123);
 return (0);
 }

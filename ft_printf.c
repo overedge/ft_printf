@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:08 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 12:15:39 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/19 13:59:35 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,13 @@ int		ft_printf(char *fmt, ...)
 //			debug(&e);
 		}
 		else
+		{
 			ft_putchar(fmt[e.i]);
-		e.ret++;
+			e.ret++;
+		}
 		e.i++;
 	}
 	va_end(e.ap);
+	e.i--;
 	return (e.ret);
 }

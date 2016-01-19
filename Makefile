@@ -6,14 +6,14 @@
 #    By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/14 18:05:20 by nahmed-m          #+#    #+#              #
-#    Updated: 2016/01/14 19:34:01 by nahmed-m         ###   ########.fr        #
+#    Updated: 2016/01/19 13:09:00 by nahmed-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 
-SRC_NAME = ft_printf.c
+SRC_NAME = ft_printf.c ft_parse_flags.c type_d.c utils.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 
