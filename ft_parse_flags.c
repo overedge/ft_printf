@@ -16,11 +16,12 @@ void	ft_check_type(char *fmt, t_var *e)
 		type_exep(e);
 	else
 	{
-		e->i++;
+//		e->i++;
 		ft_putchar(fmt[e->i]);
 		e->ret++;
 	}
 }
+
 void	ft_parse_flags(char *fmt, t_var *e)
 {
 	ft_construct_struct(e);
@@ -32,5 +33,6 @@ void	ft_parse_flags(char *fmt, t_var *e)
 	flags_space(fmt, e);
 	flags_width(fmt, e);
 	flags_precis(fmt, e);
-	ft_check_type(fmt, e);
+	if (e->error == 0)
+		ft_check_type(fmt, e);
 }

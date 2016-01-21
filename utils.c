@@ -6,13 +6,13 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 11:10:03 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 20:24:04 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/21 01:43:14 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_put_space(int space)
+void	ft_put_space(int space, t_var *e)
 {
 	int		i;
 
@@ -20,11 +20,12 @@ void	ft_put_space(int space)
 	while (i < space)
 	{
 		ft_putchar(' ');
+		e->ret++;
 		i++;
 	}
 }
 
-void	ft_put_zero(int zero)
+void	ft_put_zero(int zero, t_var *e)
 {
 	int		i;
 
@@ -32,12 +33,14 @@ void	ft_put_zero(int zero)
 	while (i < zero)
 	{
 		ft_putchar('0');
+		e->ret++;
 		i++;
 	}
 }
 
 void	ft_construct_struct(t_var *e)
 {
+	e->error = 0;
 	e->f_left = 0;
 	e->f_positive = 0;
 	e->f_effect = 0;

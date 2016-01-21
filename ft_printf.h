@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 22:56:40 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/21 01:37:17 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct	s_var
 	va_list ap;
 	int		i;
 	int		ret;
+	char	error;
 	char	f_left;
 	char	f_positive;
 	char	f_effect;
@@ -57,7 +58,7 @@ void	type_c(t_var *e);
 /*
 ** Utils Fuctions
 */
-void	ft_put_space(int space);
-void	ft_put_zero(int zero);
+void	ft_put_space(int space, t_var *e);
+void	ft_put_zero(int zero, t_var *e);
 void	ft_construct_struct(t_var *e);
 #endif

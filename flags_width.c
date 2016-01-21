@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 21:26:13 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 21:31:56 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/21 02:44:49 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ void	flags_width(char *fmt, t_var *e)
 	}
 	else
 		e->f_width = 0;
+	if (fmt[e->i] == '+')
+	{
+		e->f_positive = 1;
+		e->i++;
+	}
 }
 

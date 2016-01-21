@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 20:34:05 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/19 20:35:04 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/21 00:45:29 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void flags_effect(char *fmt, t_var *e)
 {
-	if (fmt[e->i] == '#')
+	if (fmt[e->i] == '#' && fmt[e->i + 1] == '\0')
+		e->error = 1;
+	else if (fmt[e->i] == '#')
 	{
 		e->f_effect = 1;
 		e->i++;
