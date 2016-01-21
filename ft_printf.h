@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 01:37:17 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/21 21:00:11 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@ typedef struct	s_var
 	char	f_space;
 	int		f_width;
 	int		f_precis;
+	char	f_hh;
+	char	f_h;
+	char	f_ll;
+	char	f_l;
+	char	f_j;
+	char	f_z;
 	int		t_size;
 }				t_var;
 
@@ -46,6 +52,7 @@ void	flags_zero(char *fmt, t_var *e);
 void	flags_space(char *fmt, t_var *e);
 void	flags_width(char *fmt, t_var *e);
 void	flags_precis(char *fmt, t_var *e);
+void	flags_h_l_L(char *fmt, t_var *e);
 
 /*
 ** Type Fuctions

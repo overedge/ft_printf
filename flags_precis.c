@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 21:35:34 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/20 00:03:59 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/21 23:19:01 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ void	flags_precis(char *fmt, t_var *e)
 			str = ft_strsub(fmt, i, e->i); 
 			e->f_precis = ft_atoi(str);
 			free(str);
-			if (e->f_precis <= 0)
-				e->f_precis = 0;
 		}
 	}
 	else

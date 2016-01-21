@@ -6,14 +6,14 @@
 #    By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/14 18:05:20 by nahmed-m          #+#    #+#              #
-#*   Updated: 2016/01/19 22:55:22 by nahmed-m         ###   ########.fr       *#
+#*   Updated: 2016/01/21 18:48:46 by nahmed-m         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
 
-SRC_NAME = ft_printf.c ft_parse_flags.c flags_left.c flags_positive.c flags_effect.c flags_zero.c flags_space.c flags_width.c flags_precis.c type_d.c type_s.c type_c.c type_exep.c utils.c
+SRC_NAME = ft_printf.c ft_parse_flags.c flags_left.c flags_positive.c flags_effect.c flags_zero.c flags_space.c flags_width.c flags_precis.c flags_h_l_L.c type_d.c type_s.c type_c.c type_exep.c utils.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

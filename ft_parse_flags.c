@@ -33,6 +33,7 @@ void	ft_parse_flags(char *fmt, t_var *e)
 	flags_space(fmt, e);
 	flags_width(fmt, e);
 	flags_precis(fmt, e);
+	flags_h_l_L(fmt, e);
 	if (e->error == 0)
 		ft_check_type(fmt, e);
 }
