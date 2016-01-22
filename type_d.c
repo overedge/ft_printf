@@ -6,13 +6,13 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 18:13:05 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/22 00:31:07 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/22 19:00:59 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putstr_left(t_var *e, int value)
+static void ft_putstr_left(t_var *e, long long int value)
 {
 	 if (value < 0)
 	{
@@ -35,7 +35,7 @@ static void ft_putstr_left(t_var *e, int value)
 	}
 }
 
-static void ft_putstr_right(t_var *e, int value)
+static void ft_putstr_right(t_var *e, long long int value)
 {
 	if (e->f_zero == 0)
 		ft_put_space(e->f_width - e->t_size, e);
@@ -62,7 +62,7 @@ static void ft_putstr_right(t_var *e, int value)
 		e->ret++;
 	ft_putnbr(value);
 }
-static int len_d(int value)
+static int len_d(long long int value)
 {
 	int		i;
 
@@ -77,12 +77,17 @@ static int len_d(int value)
 
 void type_d(t_var *e)
 {
-	int		value;
+	long long int		value;
 
-	value = va_arg(e->ap, int);
+	value = va_arg(e->ap, long long int);
 	e->t_size = len_d(value);
-	if (value == 0 || value < -2147483648)
+	if (value == 0 || value < -2147483648 )
 		e->ret++;
+	if ((value == 32768 && e->f_h == 1) || (value == 128 && e->f_hh == 1))
+	{
+		ft_putchar('-');
+		e->ret++;
+	}
 	if (value < 0 && e->f_positive == 1)
 		e->f_positive = 0;
 	e->ret += e->t_size;
