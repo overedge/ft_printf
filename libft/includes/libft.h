@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 15:45:30 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/08 22:45:55 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/22 23:47:03 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int				ft_isascii(int c);
 int				ft_isprint(int c);
 int				ft_toupper (int c);
 int				ft_tolower (int c);
-void			ft_putnbr(int n);
+void			ft_putnbr(long n);
 void			ft_putchar_fd(char c, int fd);
 void			ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);

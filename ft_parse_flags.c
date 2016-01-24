@@ -8,18 +8,22 @@ void	ft_check_type(char *fmt, t_var *e)
 		type_c(e);
 	else if (fmt[e->i] == 's')
 		type_s(e);
-	else if (fmt[e->i] == 'd' || fmt[e->i] == 'i')
+	else if (fmt[e->i] == 'd' || fmt[e->i] == 'i' || fmt[e->i] == 'D')
 		type_d(e);
-	else if (fmt[e->i] == 'x'|| fmt[e->i] == 'X')
-		ft_putstr("Hex mod detected");
+	else if (fmt[e->i] == 'u' || fmt[e->i] == 'U')
+		type_u(e);
+	else if (fmt[e->i] == 'X')
+		type_x(e, 0);
+	else if (fmt[e->i] == 'x')
+		type_x(e, 1);
+	else if (fmt[e->i] == 'o' || fmt[e->i] == 'O')
+		type_o(e);
+	else if (fmt[e->i] == 'p')
+		type_p(e);
 	else if (fmt[e->i] == '%')
 		type_exep(e);
 	else
-	{
-//		e->i++;
-		ft_putchar(fmt[e->i]);
-		e->ret++;
-	}
+		ft_putchar_ret(fmt[e->i], e);
 }
 
 void	ft_parse_flags(char *fmt, t_var *e)

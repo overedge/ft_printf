@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:08 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 00:47:02 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/23 18:03:32 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,13 @@ int		ft_printf(char *fmt, ...)
 	while(fmt[e.i] && fmt)
 	{
 		if (fmt[e.i] == '%' && fmt[e.i + 1] != '\0')
-		{
 			ft_parse_flags(fmt, &e);
-		//	debug(&e);
-		}
 		else if (e.error != 0)
 			e.ret--;
 		else if (fmt[e.i] == '%' && fmt[e.i + 1] == '\0')
 			e.ret = e.ret;
 		else
-		{
-			ft_putchar(fmt[e.i]);
-			e.ret++;
-		}
+			ft_putchar_ret(fmt[e.i], &e);
 		e.i++;
 	}
 	va_end(e.ap);

@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 21:39:38 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/24 22:33:40 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 #include "ft_printf.h"
 int main()
 {
-	ft_putnbr(12212121212121212);
+	ft_printf("test fdsfdsf : %s", NULL);
 	return (0);
 }

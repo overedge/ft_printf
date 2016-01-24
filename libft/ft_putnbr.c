@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 00:28:31 by nahmed-m          #+#    #+#             */
-/*   Updated: 2015/12/10 11:35:52 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/22 23:48:19 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void	ft_putnbr(int n)
+void	ft_putnbr(long n)
 {
-	if (n == -2147483648)
-		ft_putstr("-2147483648");
-	else
-	{
 		if (n < 0)
 		{
 			n = -n;
@@ -28,5 +24,4 @@ void	ft_putnbr(int n)
 		if (n >= 10)
 			ft_putnbr(n / 10);
 		ft_putchar(n % 10 + '0');
-	}
 }

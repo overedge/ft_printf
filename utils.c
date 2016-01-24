@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 11:10:03 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 20:54:45 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/24 20:51:10 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,37 @@ void	ft_construct_struct(t_var *e)
 	e->f_zero = 0;
 	e->f_space = 0;
 	e->f_width = 0;
-	e->f_precis = 0;
+	e->f_precis = 1;
 	e->t_size = 0;
 	e->f_hh = 0;
 	e->f_h = 0;
 	e->f_ll = 0;
+	e->f_l = 0;
 	e->f_j = 0;
 	e->f_z = 0;
+}
+
+long ft_verif_exep(long value, t_var *e)
+{
+	if (e->f_hh == 1 && value < -128)
+		value = 127;
+	else if (e->f_hh == 1 && value > 127)
+		value = -128;
+	else if (e->f_h == 1 && value < -32768)
+		value = 32767;
+	else if (e->f_h == 1 && value > 32767)
+		value = -32768;
+	if (value < -9223372036854775807)
+	{
+		e->error = 1;
+		e->ret++;
+		ft_putstr("-9223372036854775808");
+	}
+	return (value);
+}
+
+void	ft_putchar_ret(char c, t_var *e)
+{
+	ft_putchar(c);
+	e->ret++;
 }

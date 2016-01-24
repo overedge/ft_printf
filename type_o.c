@@ -6,41 +6,35 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                               +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 18:13:05 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/24 18:52:47 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/24 21:24:04 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putstr_left(t_var *e, long value)
+static void ft_putstr_left(t_var *e, unsigned long value)
 {
-	if (value < 0)
-		e->ret++;
-	else
-	{
 		if (e->f_positive == 1)
 			ft_putchar_ret('+', e);
 		else if (e->f_positive == 0 && e->f_space == 1)
 			ft_putchar_ret(' ', e);	
-	}
-	if (value < 0 && e->f_precis != 1)
-	{
-		value *= -1;
-		ft_putchar('-');
-		e->f_precis++;
-	}
 	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis)
-		ft_put_zero(e->f_precis - e->t_size, e);
+		ft_put_space(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
-		ft_put_zero(1, e);
-	ft_putnbr(value);
+		ft_put_space(1, e);
+	if (e->f_effect == 1 && value > 0)
+	{
+		ft_putstr("0");
+		e->ret += 1;
+	}
+	ft_itoa_base(value, 8, 1);
 	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
 	else if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && e->f_precis != 1)
 		ft_put_space(e->f_width - e->f_precis, e);
 }
 
-static void ft_putstr_right(t_var *e, long value)
+static void ft_putstr_right(t_var *e, unsigned long value)
 {
 	if (e->f_zero == 0 && e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
@@ -48,63 +42,50 @@ static void ft_putstr_right(t_var *e, long value)
 		ft_put_space(e->f_width - e->t_size - 1, e);
 	if (e->f_positive == 1)
 		ft_putchar_ret('+', e);
-	if (e->f_zero == 1 && value < 0)
-	{
-		ft_putchar_ret('-', e);
-		value *= -1;
-	}
 	if (e->f_zero == 1 && e->f_precis == 1)
 		ft_put_zero(e->f_width - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width < e->f_precis)
-		ft_put_zero(e->f_precis - e->f_width + 2, e);
+		ft_put_space(e->f_precis - e->f_width + 2, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
-		ft_put_zero(1, e);
+		ft_put_space(1, e);
 	if (e->f_positive == 0 && e->f_space == 1 && e->f_precis == 0)
 		ft_putchar_ret(' ', e);
-	if (value < 0)
-		e->ret++;
-	ft_putnbr(value);
-}
-static int len_d(long value, t_var *e)
-{
-	int		i;
-
-	i = 0;
-	if (value == 0)
+	if (e->f_effect == 1 && value > 0)
 	{
-		e->ret++;
-		return (1);
+		ft_putstr("0");
+		e->ret += 1;
 	}
-	while (value != 0)
-	{
-		i++;
-		value /= 10;
-	}
-	e->ret += i;
-	return (i);
+	ft_itoa_base(value, 8, 1);
 }
 
-void type_d(t_var *e)
+static unsigned long ft_verif_exep_x(unsigned long value, t_var *e)
 {
-	long	value;
+	if (e->f_hh && value > 255)
+		value = 0;
+	if (e->f_h && value > 65535)
+		value = 0;
+	return (value);
+}
+
+void type_o(t_var *e)
+{
+	unsigned long	value;
 
 	if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j == 0 && e->f_z == 0)
-		value = va_arg(e->ap, int);
+		value = va_arg(e->ap, unsigned int);
 	else
-		value = va_arg(e->ap, long);
+		value = va_arg(e->ap, unsigned long);
 	if (e->f_precis == 0 && value == 0)
 	{
 		ft_put_space(e->f_width, e);
 		return ;
 	}
-	e->t_size = len_d(value, e);
-	value = ft_verif_exep(value, e);
+	value = ft_verif_exep_x(value, e);
 	if (e->error == 1)
 		return ;
-	if (value < 0 && e->f_positive == 1)
-		e->f_positive = 0;
-	if (value < 0 || e->f_positive == 1 || (e->f_space == 1 && e->f_positive == 1))
-		e->t_size++;
+	e->t_size = ft_itoa_count(value, 8, e);
+	if (e->f_effect == 1)
+		e->t_size += 1;
 	if (e->f_left == 0 && e->f_width != 0 && e->f_width > e->t_size)
 		ft_putstr_right(e, value);
 	else
