@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   type_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/19 22:43:12 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 19:28:14 by nahmed-m         ###   ########.fr       */
+/*   Created: 2016/01/25 11:46:40 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/25 11:47:13 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putstr_left(char c, t_var *e)
+static void		ft_putstr_left(char c, t_var *e)
 {
 	ft_putchar(c);
 	e->ret++;
 	ft_put_space(e->f_width - 1, e);
 }
 
-static void ft_putstr_right(char c, t_var *e)
+static void		ft_putstr_right(char c, t_var *e)
 {
 	if (e->f_zero == 0)
 		ft_put_space(e->f_width - 1, e);
@@ -28,7 +28,8 @@ static void ft_putstr_right(char c, t_var *e)
 	ft_putchar(c);
 	e->ret++;
 }
-void	type_c(t_var *e)
+
+void			type_c(t_var *e)
 {
 	char c;
 

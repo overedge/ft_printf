@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/30 00:28:31 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/22 23:48:19 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/25 11:51:26 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 void	ft_putnbr(long n)
 {
-		if (n < 0)
-		{
-			n = -n;
-			ft_putchar('-');
-		}
-		if (n >= 10)
-			ft_putnbr(n / 10);
-		ft_putchar(n % 10 + '0');
+	if (n < 0)
+	{
+		n = -n;
+		ft_putchar('-');
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	ft_putchar(n % 10 + '0');
 }

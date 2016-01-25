@@ -13,7 +13,7 @@
 NAME = libftprintf.a
 
 
-SRC_NAME = ft_printf.c ft_parse_flags.c flags_left.c flags_positive.c flags_effect.c flags_zero.c flags_space.c flags_width.c flags_precis.c flags_h_l_L.c type_d.c type_s.c type_c.c type_u.c type_x.c type_p.c type_o.c type_exep.c type__C.c utils.c itoa_base.c
+SRC_NAME = ft_printf.c ft_parse_flags.c flags_left.c flags_positive.c flags_effect.c flags_zero.c flags_space.c flags_width.c flags_precis.c flags_h.c type_d.c type_s.c type_c.c type_u.c type_x.c type_p.c type_o.c type_exep.c type_wc.c utils.c itoa_base.c
 
 OBJ_NAME = $(SRC_NAME:.c=.o)
 

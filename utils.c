@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 11:10:03 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/24 20:51:10 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/25 11:32:37 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	ft_construct_struct(t_var *e)
 	e->f_z = 0;
 }
 
-long ft_verif_exep(long value, t_var *e)
+long	ft_verif_exep(long value, t_var *e)
 {
 	if (e->f_hh == 1 && value < -128)
 		value = 127;

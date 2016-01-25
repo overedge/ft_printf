@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_d.c                                           :+:      :+:    :+:   */
+/*   type_p.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                               +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/18 18:13:05 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/24 21:37:46 by nahmed-m         ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/25 11:38:02 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/25 11:38:44 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putstr_left(t_var *e, unsigned long value, char up)
+static void		ft_putstr_left(t_var *e, unsigned long value, char up)
 {
-		if (e->f_positive == 1)
-			ft_putchar_ret('+', e);
-		else if (e->f_positive == 0 && e->f_space == 1)
-			ft_putchar_ret(' ', e);	
+	if (e->f_positive == 1)
+		ft_putchar_ret('+', e);
+	else if (e->f_positive == 0 && e->f_space == 1)
+		ft_putchar_ret(' ', e);
 	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis)
 		ft_put_space(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
@@ -25,13 +25,15 @@ static void ft_putstr_left(t_var *e, unsigned long value, char up)
 	ft_putstr("0x");
 	e->ret += 2;
 	ft_itoa_base(value, 16, up);
-	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && e->f_precis == 1)
+	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && \
+			e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
-	else if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && e->f_precis != 1)
+	else if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size &&\
+			e->f_precis != 1)
 		ft_put_space(e->f_width - e->f_precis, e);
 }
 
-static void ft_putstr_right(t_var *e, unsigned long value, char up)
+static void		ft_putstr_right(t_var *e, unsigned long value, char up)
 {
 	if (e->f_zero == 0 && e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
@@ -52,7 +54,7 @@ static void ft_putstr_right(t_var *e, unsigned long value, char up)
 	ft_itoa_base(value, 16, up);
 }
 
-void type_p(t_var *e)
+void			type_p(t_var *e)
 {
 	unsigned long	value;
 

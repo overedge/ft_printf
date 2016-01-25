@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_c.c                                           :+:      :+:    :+:   */
+/*   type_wc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/19 22:43:12 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/25 02:32:43 by nahmed-m         ###   ########.fr       */
+/*   Created: 2016/01/25 11:48:23 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/25 11:50:45 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-static void ft_putwchar(unsigned long str)
+static void		ft_putwchar(unsigned long str)
 {
 	write(1, &str, sizeof(wchar_t));
 }
-static void ft_putstr_left(unsigned long str, t_var *e)
+
+static void		ft_putstr_left(unsigned long str, t_var *e)
 {
 	ft_putwchar(str);
 	e->ret++;
 	ft_put_space(e->f_width - 1, e);
 }
 
-static void ft_putstr_right(unsigned long str, t_var *e)
+static void		ft_putstr_right(unsigned long str, t_var *e)
 {
 	if (e->f_zero == 0)
 		ft_put_space(e->f_width - 1, e);
@@ -33,7 +33,8 @@ static void ft_putstr_right(unsigned long str, t_var *e)
 	ft_putwchar(str);
 	e->ret++;
 }
-void	type__C(t_var *e)
+
+void			type_wc(t_var *e)
 {
 	unsigned long str;
 

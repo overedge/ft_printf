@@ -6,13 +6,13 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 18:26:39 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 21:04:46 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/25 12:23:00 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flags_h_l_L(char *fmt, t_var *e)
+void	flags_h(char *fmt, t_var *e)
 {
 	while (fmt[e->i] == 'h' || fmt[e->i] == 'l' || fmt[e->i] == 'j' || 
 			fmt[e->i] == 'z')

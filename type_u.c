@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   type_d.c                                           :+:      :+:    :+:   */
+/*   type_u.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                               +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/18 18:13:05 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/24 19:28:22 by nahmed-m         ###   ########.fr       */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/25 11:33:25 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/25 11:35:59 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putstr_left(t_var *e, unsigned long value)
+static void				ft_putstr_left(t_var *e, unsigned long value)
 {
 	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis)
 		ft_put_zero(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
 		ft_put_zero(1, e);
 	ft_putnbr(value);
-	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && e->f_precis == 1)
+	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && \
+			e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
-	else if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && e->f_precis != 1)
+	else if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && \
+			e->f_precis != 1)
 		ft_put_space(e->f_width - e->f_precis, e);
 }
 
-static void ft_putstr_right(t_var *e, unsigned long value)
+static void				ft_putstr_right(t_var *e, unsigned long value)
 {
 	if (e->f_zero == 0 && e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
@@ -39,7 +41,8 @@ static void ft_putstr_right(t_var *e, unsigned long value)
 		ft_put_zero(1, e);
 	ft_putnbr(value);
 }
-static int len_d(unsigned long value, t_var *e)
+
+static int				len_d(unsigned long value, t_var *e)
 {
 	int		i;
 
@@ -58,8 +61,7 @@ static int len_d(unsigned long value, t_var *e)
 	return (i);
 }
 
-
-static unsigned long ft_verif_exep_u(unsigned long value, t_var *e)
+static unsigned long	ft_verif_exep_u(unsigned long value, t_var *e)
 {
 	if (value >= -1UL)
 	{
@@ -69,11 +71,13 @@ static unsigned long ft_verif_exep_u(unsigned long value, t_var *e)
 	}
 	return (value);
 }
-void type_u(t_var *e)
+
+void					type_u(t_var *e)
 {
 	unsigned long	value;
 
-	if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j == 0 && e->f_z == 0)
+	if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && \
+			e->f_j == 0 && e->f_z == 0)
 		value = va_arg(e->ap, unsigned int);
 	else
 		value = va_arg(e->ap, unsigned long);

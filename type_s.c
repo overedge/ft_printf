@@ -6,20 +6,20 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/24 22:45:08 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/25 11:36:55 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putstr_left(char *str, t_var *e)
+static void		ft_putstr_left(char *str, t_var *e)
 {
 	ft_putstr(str);
 	e->ret += ft_strlen(str);
 	ft_put_space(e->f_width - ft_strlen(str), e);
 }
 
-static void ft_putstr_right(char *str, t_var *e)
+static void		ft_putstr_right(char *str, t_var *e)
 {
 	if (e->f_zero == 0)
 		ft_put_space(e->f_width - ft_strlen(str), e);
@@ -29,7 +29,7 @@ static void ft_putstr_right(char *str, t_var *e)
 	e->ret += ft_strlen(str);
 }
 
-void	type_s(t_var *e)
+void			type_s(t_var *e)
 {
 	char *str;
 

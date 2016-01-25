@@ -1,13 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_parse_flags.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/01/25 11:56:39 by nahmed-m          #+#    #+#             */
+/*   Updated: 2016/01/25 11:56:49 by nahmed-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
-
 
 void	ft_check_type(char *fmt, t_var *e)
 {
 	if (fmt[e->i] == 'c')
 		type_c(e);
 	else if (fmt[e->i] == 'C')
-		type__C(e);
+		type_wc(e);
 	else if (fmt[e->i] == 's')
 		type_s(e);
 	else if (fmt[e->i] == 'd' || fmt[e->i] == 'i' || fmt[e->i] == 'D')
@@ -39,7 +49,7 @@ void	ft_parse_flags(char *fmt, t_var *e)
 	flags_space(fmt, e);
 	flags_width(fmt, e);
 	flags_precis(fmt, e);
-	flags_h_l_L(fmt, e);
+	flags_h(fmt, e);
 	if (e->error == 0)
 		ft_check_type(fmt, e);
 }
