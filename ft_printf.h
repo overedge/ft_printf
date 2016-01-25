@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/24 21:19:31 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/25 02:28:08 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include "libft.h"
-
+# include <unistd.h>
 typedef struct	s_var
 {
 	va_list ap;
@@ -65,6 +65,7 @@ void	type_u(t_var *e);
 void	type_x(t_var *e, char up);
 void	type_o(t_var *e);
 void	type_p(t_var *e);
+void	type__C(t_var *e);
 /*
 ** Utils Fuctions
 */

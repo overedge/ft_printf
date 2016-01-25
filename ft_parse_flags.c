@@ -6,6 +6,8 @@ void	ft_check_type(char *fmt, t_var *e)
 {
 	if (fmt[e->i] == 'c')
 		type_c(e);
+	else if (fmt[e->i] == 'C')
+		type__C(e);
 	else if (fmt[e->i] == 's')
 		type_s(e);
 	else if (fmt[e->i] == 'd' || fmt[e->i] == 'i' || fmt[e->i] == 'D')
