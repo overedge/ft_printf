@@ -6,13 +6,13 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 20:34:05 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 00:45:29 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/26 11:04:56 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void flags_effect(char *fmt, t_var *e)
+void	flags_effect(char *fmt, t_var *e)
 {
 	if (fmt[e->i] == '#' && fmt[e->i + 1] == '\0')
 		e->error = 1;
@@ -24,4 +24,3 @@ void flags_effect(char *fmt, t_var *e)
 	else
 		e->f_effect = 0;
 }
-

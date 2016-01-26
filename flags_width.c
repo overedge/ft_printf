@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 21:26:13 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/21 02:44:49 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/25 16:49:20 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	flags_width(char *fmt, t_var *e)
 	i = e->i;
 	if (ft_isdigit(fmt[e->i]))
 	{
-		while(ft_isdigit(fmt[e->i]))
+		while (ft_isdigit(fmt[e->i]))
 			e->i++;
-		str = ft_strsub(fmt, i, e->i); 
+		str = ft_strsub(fmt, i, e->i);
 		e->f_width = ft_atoi(str);
 		free(str);
 	}
@@ -34,4 +34,3 @@ void	flags_width(char *fmt, t_var *e)
 		e->i++;
 	}
 }
-

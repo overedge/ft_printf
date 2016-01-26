@@ -6,15 +6,37 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/21 18:26:39 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/25 12:23:00 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/26 11:13:54 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	flags_h(char *fmt, t_var *e)
+static void		verif_flags(char *fmt, t_var *e)
 {
-	while (fmt[e->i] == 'h' || fmt[e->i] == 'l' || fmt[e->i] == 'j' || 
+	if (fmt[e->i] == 'h' && fmt[e->i + 1] == 'h')
+	{
+		e->f_hh = 1;
+		e->i++;
+	}
+	else if (fmt[e->i] == 'l' && fmt[e->i + 1] == 'l')
+	{
+		e->f_ll = 1;
+		e->i++;
+	}
+	else if (fmt[e->i] == 'h')
+		e->f_h = 1;
+	else if (fmt[e->i] == 'l')
+		e->f_l = 1;
+	else if (fmt[e->i] == 'j')
+		e->f_j = 1;
+	else if (fmt[e->i] == 'z')
+		e->f_z = 1;
+}
+
+void			flags_h(char *fmt, t_var *e)
+{
+	while (fmt[e->i] == 'h' || fmt[e->i] == 'l' || fmt[e->i] == 'j' ||
 			fmt[e->i] == 'z')
 	{
 		if (fmt[e->i + 1] == '\0')
@@ -22,24 +44,8 @@ void	flags_h(char *fmt, t_var *e)
 			e->error = 1;
 			return ;
 		}
-		else if (fmt[e->i] == 'h' && fmt[e->i + 1] == 'h')
-		{
-			e->f_hh = 1;
-			e->i++;
-		}
-		else if (fmt[e->i] == 'l' && fmt[e->i + 1] == 'l')
-		{
-			e->f_ll = 1;
-			e->i++;
-		}
-		else if (fmt[e->i] == 'h')
-			e->f_h = 1;
-		else if (fmt[e->i] == 'l')
-			e->f_l = 1;
-		else if (fmt[e->i] == 'j')
-			e->f_j = 1;
-		else if (fmt[e->i] == 'z')
-			e->f_z = 1;
+		else
+			verif_flags(fmt, e);
 		e->i++;
 	}
 }

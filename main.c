@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/25 02:41:40 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/26 11:48:27 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,10 @@
 #include <unistd.h>
 
 
-void	ft_putwchar(unsigned short int str)
-{
-	write(1 , &str, sizeof(wchar_t));
-}
-
 int main()
 {
-	ft_putwchar(L'中');
+
+	char *str = "igoooo";
+	ft_printf("%s", str);
 	return (0);
 }
