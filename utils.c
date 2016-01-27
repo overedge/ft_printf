@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 11:10:03 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/27 20:24:52 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/28 00:32:17 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ long	ft_verif_exep(long value, t_var *e)
 {
 	if (e->U_exep == 0)
 	{
-		if (e->f_hh == 1 && value < -128 && e->U_exep == 0)
+		if (e->f_hh == 1 && value < -128)
 			value = 127;
 		else if (e->f_hh == 1 && value > 127)
 			value = -128;

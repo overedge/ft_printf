@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/27 15:50:08 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/27 23:43:59 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,17 @@ static void		ft_putstr_right(char *str, t_var *e)
 void			type_s(t_var *e)
 {
 	char *str;
+	char *res;
 
-	str = ft_strdup(va_arg(e->ap, char*));
+	res = va_arg(e->ap, char*);
+	if (res)
+		str = ft_strdup(res);
+	else
+	{
+		ft_putstr("(null)");
+		e->ret += 6;
+		return ;
+	}
 	if (e->f_precis != 1)
 		str = ft_strsub(str, 0, e->f_precis);
 	if (e->f_width == 0)
