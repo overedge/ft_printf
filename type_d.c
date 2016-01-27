@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:42:26 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/25 11:45:45 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/27 21:14:28 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void			type_d(t_var *e)
 	long	value;
 
 	if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j \
-			== 0 && e->f_z == 0)
+			== 0 && e->f_z == 0 && e->U_exep == 0)
 		value = va_arg(e->ap, int);
 	else
 		value = va_arg(e->ap, long);
@@ -101,8 +101,8 @@ void			type_d(t_var *e)
 		ft_put_space(e->f_width, e);
 		return ;
 	}
-	e->t_size = len_d(value, e);
 	value = ft_verif_exep(value, e);
+	e->t_size = len_d(value, e);
 	if (e->error == 1)
 		return ;
 	if (value < 0 && e->f_positive == 1)

@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:56:39 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/25 11:56:49 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/27 17:52:11 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	ft_check_type(char *fmt, t_var *e)
 {
-	if (fmt[e->i] == 'c')
-		type_c(e);
-	else if (fmt[e->i] == 'C')
+	if (fmt[e->i] == 'C' || (fmt[e->i] == 'c' && e->f_l == 1))
 		type_wc(e);
-	else if (fmt[e->i] == 's')
+	else if (fmt[e->i] == 'c')
+		type_c(e);
+	else if (fmt[e->i] == 's' || fmt[e->i] == 'S')
 		type_s(e);
 	else if (fmt[e->i] == 'd' || fmt[e->i] == 'i' || fmt[e->i] == 'D')
 		type_d(e);
@@ -51,5 +51,9 @@ void	ft_parse_flags(char *fmt, t_var *e)
 	flags_precis(fmt, e);
 	flags_h(fmt, e);
 	if (e->error == 0)
+	{
+		if (fmt[e->i] == 'U' || fmt[e->i] == 'D'|| fmt[e->i] == 'O')
+			e->U_exep = 1;
 		ft_check_type(fmt, e);
+	}
 }

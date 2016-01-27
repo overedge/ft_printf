@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:39:25 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/25 11:40:21 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/27 18:46:22 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 static void					ft_putstr_left(t_var *e, unsigned long value)
 {
-	if (e->f_positive == 1)
-		ft_putchar_ret('+', e);
-	else if (e->f_positive == 0 && e->f_space == 1)
+	if (e->f_positive == 0 && e->f_space == 1)
 		ft_putchar_ret(' ', e);
 	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis)
-		ft_put_space(e->f_precis - e->t_size, e);
+		ft_put_zero(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
-		ft_put_space(1, e);
+		ft_put_zero(1, e);
 	if (e->f_effect == 1 && value > 0)
 	{
 		ft_putstr("0");
@@ -42,8 +40,6 @@ static void					ft_putstr_right(t_var *e, unsigned long value)
 		ft_put_space(e->f_width - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
 		ft_put_space(e->f_width - e->t_size - 1, e);
-	if (e->f_positive == 1)
-		ft_putchar_ret('+', e);
 	if (e->f_zero == 1 && e->f_precis == 1)
 		ft_put_zero(e->f_width - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width < e->f_precis)
@@ -69,16 +65,26 @@ static unsigned long		ft_verif_exep_x(unsigned long value, t_var *e)
 	return (value);
 }
 
+
+static void					exep_effect(t_var *e)
+{
+	ft_putchar('0');
+	e->ret++;
+	e->error = 1;
+}
+
 void						type_o(t_var *e)
 {
 	unsigned long	value;
 
 	if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && \
-			e->f_j == 0 && e->f_z == 0)
+			e->f_j == 0 && e->f_z == 0 && e->U_exep == 0)
 		value = va_arg(e->ap, unsigned int);
 	else
 		value = va_arg(e->ap, unsigned long);
-	if (e->f_precis == 0 && value == 0)
+	if (value == 0 && e->f_effect == 1)
+		exep_effect(e);
+	else if (e->f_precis == 0 && value == 0)
 	{
 		ft_put_space(e->f_width, e);
 		return ;
