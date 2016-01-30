@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:42:26 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/28 00:24:37 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/30 21:48:47 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,21 @@ static void		ft_putstr_left(t_var *e, long value)
 {
 	if (value < 0)
 		e->ret++;
-	else
-	{
-		if (e->f_positive == 1)
-			ft_putchar_ret('+', e);
-		else if (e->f_positive == 0 && e->f_space == 1)
+	else if (e->f_positive == 1)
+		ft_putchar_ret('+', e);
+	else if (e->f_positive == 0 && e->f_space == 1)
 			ft_putchar_ret(' ', e);
-	}
 	if (value < 0 && e->f_precis != 1)
 	{
 		value *= -1;
 		ft_putchar('-');
 		e->f_precis++;
+	//	e->t_size -= 2;
 	}
-	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis)
+	if (e->f_precis != 1 && e->f_width < e->f_precis)
 		ft_put_zero(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
-		ft_put_zero(1, e);
+		ft_put_zero(e->f_precis - e->t_size, e);
 	ft_putnbr(value);
 	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && \
 			e->f_precis == 1)
@@ -73,6 +71,8 @@ static int		len_d(long value, t_var *e)
 	int		i;
 
 	i = 0;
+	if (value < 0 && e->f_positive == 1)
+		e->f_positive = 0;
 	if (value == 0)
 	{
 		e->ret++;
@@ -105,8 +105,6 @@ void			type_d(t_var *e)
 	e->t_size = len_d(value, e);
 	if (e->error == 1)
 		return ;
-	if (value < 0 && e->f_positive == 1)
-		e->f_positive = 0;
 	if (value < 0 || e->f_positive == 1 || (e->f_space == 1 && \
 				e->f_positive == 1))
 		e->t_size++;

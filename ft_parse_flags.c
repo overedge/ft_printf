@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:56:39 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/27 17:52:11 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/30 17:05:56 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,11 @@ void	ft_check_type(char *fmt, t_var *e)
 {
 	if (fmt[e->i] == 'C' || (fmt[e->i] == 'c' && e->f_l == 1))
 		type_wc(e);
+	else if (fmt[e->i] == 'S' || (fmt[e->i] == 's' && e->f_l == 1))
+		type_ws(e);
 	else if (fmt[e->i] == 'c')
 		type_c(e);
-	else if (fmt[e->i] == 's' || fmt[e->i] == 'S')
+	else if (fmt[e->i] == 's')
 		type_s(e);
 	else if (fmt[e->i] == 'd' || fmt[e->i] == 'i' || fmt[e->i] == 'D')
 		type_d(e);
@@ -42,6 +44,8 @@ void	ft_parse_flags(char *fmt, t_var *e)
 {
 	ft_construct_struct(e);
 	e->i++;
+	if (fmt[e->i] == '#')
+		flags_effect(fmt, e);
 	flags_left(fmt, e);
 	flags_positive(fmt, e);
 	flags_effect(fmt, e);

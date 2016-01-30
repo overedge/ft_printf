@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/28 00:42:11 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/30 21:35:52 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 #include <unistd.h>
 #include <limits.h>
 
+
 int main()
 {
-	ft_printf("%.p, %.0p", 0, 0);
+	ft_printf("{% 03d}", 0);
 	return (0);
 }
