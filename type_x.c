@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:29:34 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/30 17:01:10 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/31 21:43:20 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void				ft_putstr_left(t_var *e, unsigned long value, char up)
 		ft_putchar_ret('+', e);
 	else if (e->f_positive == 0 && e->f_space == 1)
 		ft_putchar_ret(' ', e);
-	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis)
+	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis && e->f_width != 0)
 		ft_put_space(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
 		ft_put_space(1, e);
@@ -30,6 +30,8 @@ static void				ft_putstr_left(t_var *e, unsigned long value, char up)
 			ft_putstr("0x");
 		e->ret += 2;
 	}
+	if (e->f_zero == 0 && e->f_width == 0 && e->f_precis > e->t_size)
+		ft_put_zero(e->f_precis - e->t_size + 2, e);
 	ft_itoa_base(value, 16, up);
 	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && \
 			e->f_precis == 1)

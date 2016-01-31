@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/27 23:43:59 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/31 21:22:44 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void			type_s(t_var *e)
 	res = va_arg(e->ap, char*);
 	if (res)
 		str = ft_strdup(res);
-	else
+	else if (!res && e->f_zero == 0)
 	{
 		ft_putstr("(null)");
 		e->ret += 6;

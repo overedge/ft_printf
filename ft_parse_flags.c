@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:56:39 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 03:11:26 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/31 22:16:07 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,10 @@ void	ft_check_type(char *fmt, t_var *e)
 	else if (fmt[e->i] == '%')
 		type_exep(e);
 	else
-	{	if (e->f_left == 0 && e->f_width != 0)
+	{	if (e->f_left == 0 && e->f_width != 0 && e->f_zero == 0)
 			ft_put_space(e->f_width - 1, e);
+		else if (e->f_left == 0 && e->f_width != 0 && e->f_zero == 1)
+			ft_put_zero(e->f_width - 1, e);
 		ft_putchar_ret(fmt[e->i], e);
 		if (e->f_left == 1 && e->f_width != 0)
 			ft_put_space(e->f_width - 1, e);

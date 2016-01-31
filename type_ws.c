@@ -6,21 +6,11 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/30 22:33:01 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/31 22:16:56 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int	ft_strwlen(wchar_t *str)
-{
-	int		i;
-	
-	i = 0;
-	while (*str++)
-		i++;
-	return (i);
-}
 
 static void	ft_putwchar(wchar_t chr, t_var *e)
 {
@@ -55,13 +45,6 @@ static void	ft_putwstr(wchar_t *str, t_var *e)
 static void		ft_putstr_left(wchar_t *str, t_var *e)
 {
 	ft_putwstr(str, e);
-	ft_put_space(e->f_width - ft_strwlen(str), e);
-}
-
-static void		ft_putstr_right(wchar_t *str, t_var *e)
-{
-	ft_put_space(e->f_width - ft_strwlen(str), e);
-	ft_putwstr(str, e);
 }
 
 static wchar_t* ft_strwsub(wchar_t *str, int start, int size)
@@ -88,6 +71,8 @@ void			type_ws(t_var *e)
 	wchar_t *res;
 
 	res = va_arg(e->ap, wchar_t*);
+	if (e->f_zero == 1 && e->f_width != 0)
+		ft_put_zero(e->f_width, e);
 	if (!res)
 	{
 		ft_putstr("(null)");
@@ -104,8 +89,6 @@ void			type_ws(t_var *e)
 		ft_putwstr(str, e);
 		return ;
 	}
-	else if (e->f_width != 0 && e->f_left == 1)
+	else
 		ft_putstr_left(str, e);
-	else if (e->f_width != 0 && e->f_left == 0)
-		ft_putstr_right(str, e);
 }
