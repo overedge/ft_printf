@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/30 21:27:54 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/30 22:33:01 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,24 @@ static void		ft_putstr_right(wchar_t *str, t_var *e)
 	ft_putwstr(str, e);
 }
 
+static wchar_t* ft_strwsub(wchar_t *str, int start, int size)
+{
+	wchar_t *s;
+	int		i;
+	
+	i = 0;
+	s = (wchar_t*)malloc(sizeof(wchar_t) * size + 1);
+	while(start < size)
+	{
+		s[i] = str[start];
+		start++;
+		i++;
+	}
+
+	s[size] = '\0';
+	return (s);
+}
+
 void			type_ws(t_var *e)
 {
 	wchar_t *str;
@@ -79,8 +97,8 @@ void			type_ws(t_var *e)
 	if (e->f_zero == 1)
 		return ;
 	str = res;
-	//if (e->f_precis != 1)
-	//	str = ft_strsub(str, 0, e->f_precis);
+	if (e->f_precis != 1)
+		str = ft_strwsub(str, 0, e->f_precis);
 	if (e->f_width == 0)
 	{
 		ft_putwstr(str, e);

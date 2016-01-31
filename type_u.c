@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:33:25 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/27 17:16:12 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/31 02:49:29 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ static void ft_putnbr_u(unsigned long value)
 
 static void				ft_putstr_left(t_var *e, unsigned long value)
 {
-	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis)
+	if (e->f_precis != 1 && e->f_width < e->f_precis)
 		ft_put_zero(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
-		ft_put_zero(1, e);
+		ft_put_zero(e->f_precis - e->t_size, e);
 	ft_putnbr_u(value);
 	if (e->f_left == 1 && e->f_width != 0 && e->f_width > e->t_size && \
 			e->f_precis == 1)
@@ -38,14 +38,14 @@ static void				ft_putstr_right(t_var *e, unsigned long value)
 {
 	if (e->f_zero == 0 && e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
-	else if (e->f_precis != 1 && e->f_width > e->f_precis)
-		ft_put_space(e->f_width - e->t_size - 1, e);
+	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis > e->t_size)
+		ft_put_space(e->f_width - e->f_precis, e);
+	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis < e->t_size)
+		ft_put_space(e->f_width - e->t_size, e);
 	if (e->f_zero == 1 && e->f_precis == 1)
 		ft_put_zero(e->f_width - e->t_size, e);
-	else if (e->f_precis != 1 && e->f_width < e->f_precis)
-		ft_put_zero(e->f_precis - e->f_width + 2, e);
-	else if (e->f_precis != 1 && e->f_width > e->f_precis)
-		ft_put_zero(1, e);
+	else if (e->f_precis != 1 && e->f_precis > e->t_size)
+		ft_put_zero(e->f_precis - e->t_size, e);
 	ft_putnbr_u(value);
 }
 

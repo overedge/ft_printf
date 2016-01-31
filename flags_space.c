@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 20:37:17 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/30 16:48:32 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/01/30 21:54:18 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	flags_space(char *fmt, t_var *e)
 			e->i++;
 			if (fmt[e->i] == '+')
 				flags_positive(fmt, e);
+			if (fmt[e->i] == '0')
+				flags_zero(fmt, e);
 		}
 	}
 	else
