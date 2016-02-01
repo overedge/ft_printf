@@ -6,18 +6,16 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 13:35:14 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 17:43:02 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
-#include <unistd.h>
-#include <limits.h>
-
 
 int main()
 {
-	printf("%C", L'ݮ');
+	//printf("{%30S}", L"salut ÊM-^HM-^QÊM-^XØ‰");
+		ft_printf("{%30C}", L'Ê');
 	return (0);
 }

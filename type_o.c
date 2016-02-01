@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:39:25 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 13:56:28 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 17:21:29 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,21 @@ static unsigned long		ft_verif_exep_x(unsigned long value, t_var *e)
 	return (value);
 }
 
-static void					exep_effect(t_var *e)
+static void					exep_effect(t_var *e, int select, unsigned long nb)
 {
-	ft_putchar('0');
-	e->ret++;
-	e->error = 1;
+	if (select == 0)
+	{
+		ft_putchar('0');
+		e->ret++;
+		e->error = 1;
+	}
+	else if (select == 1)
+	{
+		if (e->f_left == 0 && e->f_width != 0 && e->f_width > e->t_size)
+			ft_putstr_right(e, nb);
+		else
+			ft_putstr_left(e, nb);
+	}
 }
 
 void						type_o(t_var *e)
@@ -85,7 +95,7 @@ void						type_o(t_var *e)
 	else
 		value = va_arg(e->ap, unsigned long);
 	if (value == 0 && e->f_effect == 1)
-		exep_effect(e);
+		exep_effect(e, 0, value);
 	else if (e->f_precis == 0 && value == 0)
 	{
 		ft_put_space(e->f_width, e);
@@ -97,8 +107,5 @@ void						type_o(t_var *e)
 	e->t_size = ft_itoa_count(value, 8, e);
 	if (e->f_effect == 1)
 		e->t_size += 1;
-	if (e->f_left == 0 && e->f_width != 0 && e->f_width > e->t_size)
-		ft_putstr_right(e, value);
-	else
-		ft_putstr_left(e, value);
+	exep_effect(e, 1, value);
 }
