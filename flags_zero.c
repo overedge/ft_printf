@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 20:35:32 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 21:12:34 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 02:00:35 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ void	flags_zero(char *fmt, t_var *e)
 		e->error = 1;
 	else if (fmt[e->i] == '0')
 	{
-		e->f_zero = 1;
-		e->i++;
+		while (fmt[e->i] == '0')
+		{
+			e->f_zero = 1;
+			e->i++;
+		}
 	}
 	else
 		e->f_zero = 0;
