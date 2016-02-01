@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 17:43:02 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 23:50:00 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 int main()
 {
-	//printf("{%30S}", L"salut ÊM-^HM-^QÊM-^XØ‰");
-		ft_printf("{%30C}", L'Ê');
+	int score;
+	score = 	ft_printf("{%30S}", L"ÊM-^HM-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	ft_putnbr(score);
 	return (0);
 }

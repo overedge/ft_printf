@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 17:46:13 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 23:38:39 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ void			type_ws(t_var *e)
 		return ;
 	str = res;
 	if (e->f_precis != 1)
-		str = ft_strwsub(str, 0, e->f_precis);
-	if (e->f_width == 0)
-	{
-		ft_putwstr(str, e);
-		return ;
-	}
-	else
+		str = ft_strwsub(str, 0, e->f_precis - 1);
+//	if (e->f_width == 0)
+//	{
+//		ft_putwstr(str, e);
+//		return ;
+//	}
+//	else
 		ft_putstr_left(str, e);
 }
