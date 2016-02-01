@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 11:10:03 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 01:10:23 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 13:54:38 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,12 @@ void	ft_construct_struct(t_var *e)
 	e->f_l = 0;
 	e->f_j = 0;
 	e->f_z = 0;
-	e->U_exep = 0;
+	e->u_exep = 0;
 }
 
 long	ft_verif_exep(long value, t_var *e)
 {
-	if (e->U_exep == 0)
+	if (e->u_exep == 0)
 	{
 		if (e->f_hh == 1 && value < -128)
 			value = 127;

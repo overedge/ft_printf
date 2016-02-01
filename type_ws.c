@@ -6,13 +6,13 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 22:16:56 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 15:11:48 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putwchar(wchar_t chr, t_var *e)
+static void		ft_putwchar(wchar_t chr, t_var *e)
 {
 	if (chr <= 0x7F)
 		ft_putchar_ret(chr, e);
@@ -36,9 +36,9 @@ static void	ft_putwchar(wchar_t chr, t_var *e)
 	}
 }
 
-static void	ft_putwstr(wchar_t *str, t_var *e)
+static void		ft_putwstr(wchar_t *str, t_var *e)
 {
-	while(*str)
+	while (*str)
 		ft_putwchar(*str++, e);
 }
 
@@ -47,20 +47,19 @@ static void		ft_putstr_left(wchar_t *str, t_var *e)
 	ft_putwstr(str, e);
 }
 
-static wchar_t* ft_strwsub(wchar_t *str, int start, int size)
+static wchar_t	*ft_strwsub(wchar_t *str, int start, int size)
 {
 	wchar_t *s;
 	int		i;
-	
+
 	i = 0;
 	s = (wchar_t*)malloc(sizeof(wchar_t) * size + 1);
-	while(start < size)
+	while (start < size)
 	{
 		s[i] = str[start];
 		start++;
 		i++;
 	}
-
 	s[size] = '\0';
 	return (s);
 }

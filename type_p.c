@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:38:02 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 00:11:45 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 14:51:51 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ static void		ft_putstr_left(t_var *e, unsigned long value, char up)
 	if (e->f_precis > e->t_size && e->f_precis > e->f_width)
 		ft_put_zero(e->f_precis - e->t_size, e);
 	ft_itoa_base(value, 16, up);
+}
+
+static void		ft_exep(t_var *e)
+{
+	if (e->f_left == 0 && e->f_width != 0)
+		ft_put_space(e->f_width - 3, e);
+	ft_putstr("0x0");
+	e->ret += 3;
+	if (e->f_left == 1 && e->f_width != 0)
+		ft_put_space(e->f_width - 3, e);
 }
 
 void			type_p(t_var *e)
@@ -43,14 +53,9 @@ void			type_p(t_var *e)
 	}
 	if (value == 0)
 	{
-		if (e->f_left == 0 && e->f_width != 0)
-			ft_put_space(e->f_width - 3, e);
-		ft_putstr("0x0");
-		e->ret += 3;
-		if (e->f_left == 1 && e->f_width != 0)
-			ft_put_space(e->f_width - 3, e);
+		ft_exep(e);
 		return ;
 	}
-		e->t_size = ft_itoa_count(value, 16, e);
-		ft_putstr_left(e, value, 1);
+	e->t_size = ft_itoa_count(value, 16, e);
+	ft_putstr_left(e, value, 1);
 }

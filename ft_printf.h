@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 02:38:51 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 14:02:25 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ typedef struct	s_var
 	char	f_j;
 	char	f_z;
 	int		t_size;
-	char	U_exep;
+	char	u_exep;
 }				t_var;
 
 int				ft_printf(char *fmt, ...);
@@ -70,6 +70,7 @@ void			type_p(t_var *e);
 void			type_wc(t_var *e);
 void			type_ws(t_var *e);
 void			type_b(t_var *e);
+void			type_other_char(char *fmt, t_var *e);
 /*
 ** Utils Fuctions
 */

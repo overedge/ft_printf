@@ -6,11 +6,27 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:56:39 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 02:41:06 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 14:06:30 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	type_other_char(char *fmt, t_var *e)
+{
+	if (fmt[e->i] == 'b')
+		type_b(e);
+	else
+	{
+		if (e->f_left == 0 && e->f_width != 0 && e->f_zero == 0)
+			ft_put_space(e->f_width - 1, e);
+		else if (e->f_left == 0 && e->f_width != 0 && e->f_zero == 1)
+			ft_put_zero(e->f_width - 1, e);
+		ft_putchar_ret(fmt[e->i], e);
+		if (e->f_left == 1 && e->f_width != 0)
+			ft_put_space(e->f_width - 1, e);
+	}
+}
 
 void	ft_check_type(char *fmt, t_var *e)
 {
@@ -34,19 +50,10 @@ void	ft_check_type(char *fmt, t_var *e)
 		type_o(e);
 	else if (fmt[e->i] == 'p')
 		type_p(e);
-	else if (fmt[e->i] == 'b')
-		type_b(e);
 	else if (fmt[e->i] == '%')
 		type_exep(e);
 	else
-	{	if (e->f_left == 0 && e->f_width != 0 && e->f_zero == 0)
-			ft_put_space(e->f_width - 1, e);
-		else if (e->f_left == 0 && e->f_width != 0 && e->f_zero == 1)
-			ft_put_zero(e->f_width - 1, e);
-		ft_putchar_ret(fmt[e->i], e);
-		if (e->f_left == 1 && e->f_width != 0)
-			ft_put_space(e->f_width - 1, e);
-	}
+		type_other_char(fmt, e);
 }
 
 void	ft_parse_flags(char *fmt, t_var *e)
@@ -65,8 +72,8 @@ void	ft_parse_flags(char *fmt, t_var *e)
 	flags_h(fmt, e);
 	if (e->error == 0)
 	{
-		if (fmt[e->i] == 'U' || fmt[e->i] == 'D'|| fmt[e->i] == 'O')
-			e->U_exep = 1;
+		if (fmt[e->i] == 'U' || fmt[e->i] == 'D' || fmt[e->i] == 'O')
+			e->u_exep = 1;
 		ft_check_type(fmt, e);
 	}
 }

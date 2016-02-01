@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:29:34 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 01:51:54 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 13:37:43 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ static void				ft_putstr_left(t_var *e, unsigned long value, char up)
 
 static void				ft_putstr_right(t_var *e, unsigned long value, char up)
 {
-	if ((e->f_zero == 0 && e->f_precis == 1) || (e->f_precis != 1 && 
+	if ((e->f_zero == 0 && e->f_precis == 1) || (e->f_precis != 1 &&
 			e->f_width > e->f_precis && e->f_precis < e->t_size))
 		ft_put_space(e->f_width - e->t_size, e);
-	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis > e->t_size)
+	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis > \
+			e->t_size)
 		ft_put_space(e->f_width - e->t_size - 2, e);
-	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis == e->t_size)
+	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis == \
+			e->t_size)
 		ft_put_space(e->f_width - e->t_size - 1, e);
 	if (e->f_effect == 1 && value > 0)
 	{
@@ -75,11 +77,11 @@ static unsigned long	ft_verif_exep_x(unsigned long value, t_var *e)
 void					type_x(t_var *e, char up)
 {
 	unsigned long	value;
-	
+
 	if (e->f_hh == 1)
 		value = (unsigned char)va_arg(e->ap, unsigned int);
-	else if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j \
-			== 0 && e->f_z == 0)
+	else if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 \
+			&& e->f_j == 0 && e->f_z == 0)
 		value = va_arg(e->ap, unsigned int);
 	else
 		value = va_arg(e->ap, unsigned long);

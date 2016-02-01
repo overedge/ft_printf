@@ -6,13 +6,13 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:33:25 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 01:01:22 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 14:11:13 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void ft_putnbr_u(unsigned long value)
+static void				ft_putnbr_u(unsigned long value)
 {
 	if (value >= 10)
 		ft_putnbr_u(value / 10);
@@ -38,9 +38,11 @@ static void				ft_putstr_right(t_var *e, unsigned long value)
 {
 	if (e->f_zero == 0 && e->f_precis == 1)
 		ft_put_space(e->f_width - e->t_size, e);
-	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis > e->t_size)
+	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis >\
+			e->t_size)
 		ft_put_space(e->f_width - e->f_precis, e);
-	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis < e->t_size)
+	else if (e->f_precis != 1 && e->f_width > e->f_precis && e->f_precis <\
+			e->t_size)
 		ft_put_space(e->f_width - e->t_size, e);
 	if (e->f_zero == 1 && e->f_precis == 1)
 		ft_put_zero(e->f_width - e->t_size, e);
@@ -71,11 +73,11 @@ static int				len_d(unsigned long value, t_var *e)
 void					type_u(t_var *e)
 {
 	unsigned long	value;
-	
-	if (e->f_hh == 1 && e->U_exep == 0)
+
+	if (e->f_hh == 1 && e->u_exep == 0)
 		value = (unsigned char)va_arg(e->ap, unsigned int);
 	else if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && \
-			e->f_j == 0 && e->f_z == 0 && e->U_exep == 0)
+			e->f_j == 0 && e->f_z == 0 && e->u_exep == 0)
 		value = va_arg(e->ap, unsigned int);
 	else
 		value = va_arg(e->ap, unsigned long);

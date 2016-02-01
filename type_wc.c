@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:48:23 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 22:05:10 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 14:55:46 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static void		ft_putwchar(wchar_t wc)
 		ft_putchar((wc & 0x3F) + 0x80);
 	}
 }
+
 static void		ft_putstr_left(wchar_t str, t_var *e)
 {
 	ft_putwchar(str);
@@ -54,7 +55,7 @@ static void		ft_putstr_right(wchar_t str, t_var *e)
 void			type_wc(t_var *e)
 {
 	wchar_t str;
-	
+
 	str = (wchar_t)va_arg(e->ap, wint_t);
 	if (str <= 0x7F)
 		e->ret += 1;
@@ -64,7 +65,6 @@ void			type_wc(t_var *e)
 		e->ret += 3;
 	else if (str <= 0x10FFFF)
 		e->ret += 4;
-
 	if (e->f_width != 0 && e->f_left == 1)
 		ft_putstr_left(str, e);
 	else if (e->f_width != 0 && e->f_left == 0)
