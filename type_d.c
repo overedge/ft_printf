@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:42:26 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 21:03:53 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 01:02:54 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,9 @@ static int		len_d(long value, t_var *e)
 void			type_d(t_var *e)
 {
 	long	value;
-
-	if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j \
+	if (e->f_hh == 1 && e->U_exep == 0)
+		value = (char)va_arg(e->ap, int);
+	else if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j \
 			== 0 && e->f_z == 0 && e->U_exep == 0)
 		value = va_arg(e->ap, int);
 	else

@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:29:34 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 21:43:20 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 01:16:13 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 static void				ft_putstr_left(t_var *e, unsigned long value, char up)
 {
-	if (e->f_positive == 1)
-		ft_putchar_ret('+', e);
-	else if (e->f_positive == 0 && e->f_space == 1)
-		ft_putchar_ret(' ', e);
 	if (e->f_precis != 1 && e->f_width < e->f_precis && e->t_size < e->f_precis && e->f_width != 0)
 		ft_put_space(e->f_precis - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
@@ -47,8 +43,6 @@ static void				ft_putstr_right(t_var *e, unsigned long value, char up)
 		ft_put_space(e->f_width - e->t_size, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
 		ft_put_space(e->f_width - e->t_size - 1, e);
-	if (e->f_positive == 1)
-		ft_putchar_ret('+', e);
 	if (e->f_effect == 1 && value > 0)
 	{
 		if (up == 0)
@@ -63,8 +57,6 @@ static void				ft_putstr_right(t_var *e, unsigned long value, char up)
 		ft_put_space(e->f_precis - e->f_width + 2, e);
 	else if (e->f_precis != 1 && e->f_width > e->f_precis)
 		ft_put_space(1, e);
-	if (e->f_positive == 0 && e->f_space == 1 && e->f_precis == 0)
-		ft_putchar_ret(' ', e);
 	ft_itoa_base(value, 16, up);
 }
 
@@ -80,8 +72,10 @@ static unsigned long	ft_verif_exep_x(unsigned long value, t_var *e)
 void					type_x(t_var *e, char up)
 {
 	unsigned long	value;
-
-	if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j \
+	
+	if (e->f_hh == 1)
+		value = (unsigned char)va_arg(e->ap, unsigned int);
+	else if (e->f_h == 0 && e->f_hh == 0 && e->f_ll == 0 && e->f_l == 0 && e->f_j \
 			== 0 && e->f_z == 0)
 		value = va_arg(e->ap, unsigned int);
 	else
