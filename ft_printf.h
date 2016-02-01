@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/01/31 22:15:55 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 02:38:51 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void			type_o(t_var *e);
 void			type_p(t_var *e);
 void			type_wc(t_var *e);
 void			type_ws(t_var *e);
+void			type_b(t_var *e);
 /*
 ** Utils Fuctions
 */

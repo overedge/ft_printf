@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/25 11:56:39 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 00:49:13 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/01 02:41:06 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	ft_check_type(char *fmt, t_var *e)
 		type_o(e);
 	else if (fmt[e->i] == 'p')
 		type_p(e);
+	else if (fmt[e->i] == 'b')
+		type_b(e);
 	else if (fmt[e->i] == '%')
 		type_exep(e);
 	else
