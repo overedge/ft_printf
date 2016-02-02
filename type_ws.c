@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/02 16:32:37 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/02 20:29:05 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void			type_ws(t_var *e)
 	wchar_t *res;
 
 	res = va_arg(e->ap, wchar_t*);
-	if (e->f_zero == 1 && e->f_width != 0)
+	if (e->f_zero == 1 && e->f_width != 0 && e->f_precis == 0)
 		ft_put_zero(e->f_width, e);
 	if (!res)
 	{
@@ -94,11 +94,11 @@ void			type_ws(t_var *e)
 		e->ret += 6;
 		return ;
 	}
-	if (e->f_zero == 1)
-		return ;
+	//if (e->f_zero == 1)
+	//	return ;
 	str = res;
-	if (e->f_precis != 1)
-		str = ft_strwsub(str, 0, e->f_precis - 1);
+	if (e->f_precis > 1)
+		str = ft_strwsub(str, 0, e->f_precis / 4);
 	if (e->f_width == 0)
 	{
 		ft_putwstr(str, e);
@@ -106,7 +106,9 @@ void			type_ws(t_var *e)
 	}
 	else
 	{
-		if (e->f_width > ft_strwlen(str) && e->f_left == 0)
+		if (e->f_zero == 1 && e->f_width != 0 && e->f_precis == 1)
+			ft_put_zero(e->f_width - ft_strwlen(str) - 2, e);
+		else if (e->f_width > ft_strwlen(str) && e->f_left == 0)
 			ft_put_space(e->f_width - ft_strwlen(str) - 2, e);
 		ft_putwstr(str, e);
 		if (e->f_width > ft_strwlen(str) && e->f_left == 1)
