@@ -6,7 +6,7 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 16:07:37 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 14:02:25 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/02 14:35:12 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include "libft.h"
 # include <unistd.h>
-
+# include <locale.h>
 typedef struct	s_var
 {
 	va_list ap;

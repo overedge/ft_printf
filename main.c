@@ -6,17 +6,17 @@
 /*   By: nahmed-m <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/14 18:22:44 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 23:50:00 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/02 15:15:20 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
-
+#include <locale.h>
 int main()
 {
 	int score;
-	score = 	ft_printf("{%30S}", L"ÊM-^HM-^QÊM-^XØ‰∏M-ÂM-^O™ÁM-^L´„M-M-^B");
+	score = printf("{%30S}", L"我是一只猫。\n");
 	ft_putnbr(score);
 	return (0);
 }
