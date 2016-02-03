@@ -11,4 +11,4 @@ gcc {youfiles.c} -L. -lftprintf
 ```
 
 ### Result
-![Image of Result](https://github.com/overedge/ft_printf/blob/master/result.png?raw=true)
+![Image of Result](https://github.com/overedge/ft_printf/blob/master/screen.png)
