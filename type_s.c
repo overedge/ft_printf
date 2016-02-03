@@ -6,7 +6,7 @@
 /*   By: nahmed-m <nahmed-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/19 22:20:22 by nahmed-m          #+#    #+#             */
-/*   Updated: 2016/02/01 15:04:40 by nahmed-m         ###   ########.fr       */
+/*   Updated: 2016/02/03 15:45:52 by nahmed-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ void			type_s(t_var *e)
 	}
 	if (e->f_precis != 1)
 		str = ft_strsub(str, 0, e->f_precis);
+	else if (e->f_precis == 0)
+	{
+		ft_put_space(1000000, e);
+		return ;
+	}
 	if (e->f_width == 0)
 	{
 		ft_putstr(str);
