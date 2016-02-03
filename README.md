@@ -7,7 +7,7 @@ New options : %b for binary ( Flags include )
 ### Usage
 ```sh
 $ make
-gcc {youfiles.c} -L. -lftprintf
+$ gcc {youfiles.c} -L. -lftprintf
 ```
 
 ### Result
